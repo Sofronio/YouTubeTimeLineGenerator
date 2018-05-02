@@ -115,7 +115,7 @@ namespace YouTubeTimeLineGenerator
         //}
 
         private void button_processVTT_Click(object sender, EventArgs e)
-        {
+        {            
             button_loadToSeperate.Enabled = true;
             textBox_vttResult.Clear();
             mySubtitle.Clear();
@@ -123,6 +123,7 @@ namespace YouTubeTimeLineGenerator
                 processVTT();
             else
                 processXML();
+            button_processVTT.Text = "OK!";
         }
 
         private string msToTime(string ms)
@@ -141,7 +142,6 @@ namespace YouTubeTimeLineGenerator
             if (filesPath[0] != "")
             {
                 string strXML = "";
-                int Position = 0;
                 for (int i = 0; i < textBox_vtt.Lines.Count(); i++)
                 {
                     strXML += textBox_vtt.Lines[i] + "\r\n";
@@ -159,12 +159,12 @@ namespace YouTubeTimeLineGenerator
                 //p with content could be the last line.
                 //p without content could not be the last line. 2018-05-02
                 int psFlag = 0;
+                int sPosition = 0;
+                string sContent;
+                string sWordStart;
+                string sWordEnd;
                 foreach (XmlNode p in ps)
-                {
-                    string Content;
-                    string WordStart;
-                    string WordEnd;
-                    
+                {   
                     if (p.ChildNodes.Count != 0)
                     {
                         //Debug.WriteLine(p.InnerXml);
@@ -180,30 +180,30 @@ namespace YouTubeTimeLineGenerator
                                 int ssFlag = 0;
                                 foreach (XmlNode s in ss)
                                 {
-                                    Content = s.InnerText.Trim();
+                                    sContent = s.InnerText.Trim();
                                     if (s.Attributes["t"] == null)
                                     {
                                         //s is the first word, WordStart should be LineStart.
                                         //s maybe the only word.
                                         //s maybe the final word.
-                                        WordStart = p.Attributes["t"].Value;
+                                        sWordStart = p.Attributes["t"].Value;
                                         if (s.NextSibling == null)
                                         {
-                                            if (ssFlag == ss.Count -1)
+                                            if (psFlag == ps.Count -1)
                                             {
                                                 //s is the final word, which means there is no more lines, WordEnd should be LineStart + Duration, which is a bit longer than normal ones.
-                                                WordEnd = (Convert.ToInt32(p.Attributes["t"].Value) + Convert.ToInt32(p.Attributes["d"].Value)).ToString();
+                                                sWordEnd = (Convert.ToInt32(p.Attributes["t"].Value) + Convert.ToInt32(p.Attributes["d"].Value)).ToString();
                                             }
                                             else
                                             {
                                                 //s is the only word, but not the final word, WordEnd should be next LineStart.
-                                                WordEnd = ps[psFlag + 1].Attributes["t"].Value;
+                                                sWordEnd = ps[psFlag + 1].Attributes["t"].Value;
                                             }
                                         }
                                         else
                                         {
                                             //s is not the only word, WordEnd should be LineStart + next WordStart.
-                                            WordEnd = (Convert.ToInt32(p.Attributes["t"].Value) + Convert.ToInt32(ss[ssFlag + 1].Attributes["t"].Value)).ToString();
+                                            sWordEnd = (Convert.ToInt32(p.Attributes["t"].Value) + Convert.ToInt32(ss[ssFlag + 1].Attributes["t"].Value)).ToString();
                                         }
                                     }
                                     else
@@ -211,32 +211,33 @@ namespace YouTubeTimeLineGenerator
                                         //s is not the first word, WordStart should be LineStart + TimeShift.
                                         //s cannot be the only word.
                                         //s maybe the final word.
-                                        WordStart = (Convert.ToInt32(p.Attributes["t"].Value) + Convert.ToInt32(s.Attributes["t"].Value)).ToString();
+                                        sWordStart = (Convert.ToInt32(p.Attributes["t"].Value) + Convert.ToInt32(s.Attributes["t"].Value)).ToString();
                                         if (s.NextSibling == null)
                                         {
                                             //s is the last word.
                                             //s maybe the final word.
-                                            if (ssFlag == ss.Count -1)
+                                            if (psFlag == ps.Count -1)
                                             {
                                                 //s is the final word, which means there is no more lines, WordEnd should be LineStart + Duration, which is a bit longer than normal ones.
-                                                WordEnd = (Convert.ToInt32(p.Attributes["t"].Value) + Convert.ToInt32(p.Attributes["d"].Value)).ToString();
+                                                sWordEnd = (Convert.ToInt32(p.Attributes["t"].Value) + Convert.ToInt32(p.Attributes["d"].Value)).ToString();
                                             }
                                             else
                                             {
                                                 //s is the last word, but not the final word, WordEnd should be next LineStart.
-                                                WordEnd = ps[psFlag + 1].Attributes["t"].Value;
+                                                sWordEnd = ps[psFlag + 1].Attributes["t"].Value;
                                             }
                                         }
                                         else
                                         {
                                             //s is not the last word, WordEnd should be LineStart + next WordStart.
-                                            WordEnd = (Convert.ToInt32(p.Attributes["t"].Value) + Convert.ToInt32(ss[ssFlag + 1].Attributes["t"].Value)).ToString();
+                                            sWordEnd = (Convert.ToInt32(p.Attributes["t"].Value) + Convert.ToInt32(ss[ssFlag + 1].Attributes["t"].Value)).ToString();
                                         }
                                     }
                                     ssFlag++;
-                                    Debug.WriteLine(Content + "\t" + WordStart + "\t" + WordEnd);
-                                    mySubtitle.Add(new subtitle { Content = Content, WordStart = msToTime(WordStart), WordEnd = msToTime(WordEnd), Position = Position, Selected = false });
-                                    Position += Content.Length + 1;
+                                    //Debug.WriteLine(Content + "\t" + WordStart + "\t" + WordEnd);
+                                    Debug.WriteLine(sContent + "\t" + msToTime(sWordStart) + "\t" + msToTime(sWordEnd) + "\t" + sPosition);
+                                    mySubtitle.Add(new subtitle { Content = sContent, WordStart = msToTime(sWordStart), WordEnd = msToTime(sWordEnd), Position = sPosition, Selected = false });
+                                    sPosition = sPosition + sContent.Length + 1;
                                 }
                                 Debug.WriteLine("");
                             }
@@ -275,17 +276,17 @@ namespace YouTubeTimeLineGenerator
 
             string LineStart = "";
             string LineEnd = "";
-            string Content = "";
-            string WordStart = "";
-            string WordEnd = "";
-            int Position = 0;
+            string sContent = "";
+            string sWordStart = "";
+            string sWordEnd = "";
+            int sPosition = 0;
 
             for (int i = 10; i < textBox_vtt.Lines.Count(); i = i + 8)
             {
-                Content += textBox_vtt.Lines[i] + "\r\n" + textBox_vtt.Lines[i + 2] + "\r\n";
+                sContent += textBox_vtt.Lines[i] + "\r\n" + textBox_vtt.Lines[i + 2] + "\r\n";
             }
 
-            textBox_vttResult.Text = Content;
+            textBox_vttResult.Text = sContent;
             foreach (var text in textBox_vttResult.Lines)
             {
                 //match TimeLine                
@@ -293,7 +294,7 @@ namespace YouTubeTimeLineGenerator
                 {
                     LineStart = Regex.Match(text, patternTime).Groups["TimeStart"].Value;
                     LineEnd = Regex.Match(text, patternTime).Groups["TimeEnd"].Value;
-                    WordStart = LineStart;
+                    sWordStart = LineStart;
                 }
                 else
                 {
@@ -303,15 +304,15 @@ namespace YouTubeTimeLineGenerator
                         {
                             if (m.Groups["WordEnd"].Value == "")
                             {
-                                WordEnd = LineEnd;
+                                sWordEnd = LineEnd;
                             }
                             else
                             {
-                                WordEnd = m.Groups["WordEnd"].Value;
+                                sWordEnd = m.Groups["WordEnd"].Value;
                             }
-                            mySubtitle.Add(new subtitle { Content = m.Groups["Content"].Value, WordStart = WordStart, WordEnd = WordEnd, Position = Position, Selected = false });
-                            Position = Position + m.Groups["Content"].Value.Length + 1;
-                            WordStart = WordEnd;
+                            mySubtitle.Add(new subtitle { Content = m.Groups["Content"].Value, WordStart = sWordStart, WordEnd = sWordEnd, Position = sPosition, Selected = false });
+                            sPosition = sPosition + m.Groups["Content"].Value.Length + 1;
+                            sWordStart = sWordEnd;
                         }
                     }
                 }
@@ -417,6 +418,7 @@ namespace YouTubeTimeLineGenerator
             }
             else
                 generateRichText();
+            button_processVTT.Text = "Process VTT";
         }
 
         private void richTextBox_Words_MouseUp(object sender, MouseEventArgs e)
