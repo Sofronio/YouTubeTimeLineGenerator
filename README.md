@@ -3,10 +3,22 @@ It's quite painful to make TimeLines for videos. In recent years, YouTube had de
 
 ## Usage
 Download VTT Auto-subtitles using youtube-dl. Find more: https://rg3.github.io/youtube-dl/<br />
-Usage: youtube-dl --skip-download --write-auto-sub --sub-format vtt http://youtube.com/xxxx<br />
-Then click the loaded words, the one you click, will be the last one in a sentance.<br />
+VTT Usage: youtube-dl --skip-download --write-auto-sub --sub-format vtt http://youtube.com/xxxx<br />
+XML Usage: Openup a YouTube video, then Press F12, type timedtext, then download the file.<br />
+<br />
+Once loaded, click the loaded words, which will be the last one in a sentance.<br />
+<br />
+If you find this useful, please consider supporting me. Alipay: xbox2xbox#gmail.com<br />
+My website is http://sofronio.cn , and the latest version will be there. Have a good day.<br />
 
 ## Change log
+
+### v.0.0.3
+Add YouTube XML support, now you can get it by F12 of your browser. See usage above
+
+### v.0.0.2
+Change listbox to richtextbox for better viewing
+
 ### v.0.0.1
 First edition
 
