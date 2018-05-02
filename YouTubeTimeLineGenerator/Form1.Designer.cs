@@ -65,7 +65,7 @@
             this.textBox_vtt.Multiline = true;
             this.textBox_vtt.Name = "textBox_vtt";
             this.textBox_vtt.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox_vtt.Size = new System.Drawing.Size(500, 210);
+            this.textBox_vtt.Size = new System.Drawing.Size(500, 462);
             this.textBox_vtt.TabIndex = 3;
             this.textBox_vtt.Text = "Drag and Drop your YouTube VTT file here.";
             this.textBox_vtt.WordWrap = false;
@@ -77,10 +77,10 @@
             this.richTextBox_ass.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBox_ass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.richTextBox_ass.Location = new System.Drawing.Point(571, 259);
+            this.richTextBox_ass.Location = new System.Drawing.Point(571, 168);
             this.richTextBox_ass.Name = "richTextBox_ass";
             this.richTextBox_ass.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedBoth;
-            this.richTextBox_ass.Size = new System.Drawing.Size(1068, 226);
+            this.richTextBox_ass.Size = new System.Drawing.Size(1068, 317);
             this.richTextBox_ass.TabIndex = 0;
             this.richTextBox_ass.Text = resources.GetString("richTextBox_ass.Text");
             this.richTextBox_ass.WordWrap = false;
@@ -97,12 +97,13 @@
             // 
             // textBox_vttResult
             // 
-            this.textBox_vttResult.Location = new System.Drawing.Point(38, 259);
+            this.textBox_vttResult.Location = new System.Drawing.Point(1239, 23);
             this.textBox_vttResult.Multiline = true;
             this.textBox_vttResult.Name = "textBox_vttResult";
             this.textBox_vttResult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox_vttResult.Size = new System.Drawing.Size(500, 226);
+            this.textBox_vttResult.Size = new System.Drawing.Size(108, 121);
             this.textBox_vttResult.TabIndex = 7;
+            this.textBox_vttResult.Visible = false;
             this.textBox_vttResult.WordWrap = false;
             // 
             // radioButton_VTT
