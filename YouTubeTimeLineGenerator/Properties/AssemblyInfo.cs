@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("YouTubeTimeLineGenerator")]
-[assembly: AssemblyDescription("A YouTube VTT2ASS TimeLine Generator")]
+[assembly: AssemblyDescription("A YouTube AutoTimedText2ASS Generator")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Sofronio.cn")]
 [assembly: AssemblyProduct("YouTubeTimeLineGenerator")]
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("0.0.2.0")]
-[assembly: AssemblyFileVersion("0.0.2.0")]
+[assembly: AssemblyVersion("0.0.3.0")]
+[assembly: AssemblyFileVersion("0.0.3.0")]

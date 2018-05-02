@@ -117,7 +117,7 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="richTextBox1.Text" xml:space="preserve">
+  <data name="richTextBox_ass.Text" xml:space="preserve">
     <value>Download VTT Auto-subtitles using youtube-dl. Find more: https://rg3.github.io/youtube-dl/
 Usage: youtube-dl --skip-download --write-auto-sub --sub-format vtt http://youtube.com/xxxx
 Then click the loaded words, the one you click, will be the last one in a sentance.
