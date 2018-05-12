@@ -14,7 +14,7 @@ using System.Xml;
 using System.Diagnostics;
 
 namespace YouTubeTimeLineGenerator
-{        
+{
     public partial class Form1 : Form
     {
         List<subtitle> mySubtitle = new List<subtitle>();
@@ -92,13 +92,13 @@ namespace YouTubeTimeLineGenerator
             private int position;
             private bool selected;
         }
-        
+
         public Form1()
         {
             InitializeComponent();
             this.textBox_vtt.AllowDrop = true;
             this.textBox_vtt.DragOver += new DragEventHandler(textBox_vtt_DragOver);
-            this.textBox_vtt.DragDrop += new DragEventHandler(textBox_vtt_DragDrop);            
+            this.textBox_vtt.DragDrop += new DragEventHandler(textBox_vtt_DragDrop);
         }
 
         //private void OldOrNew()
@@ -115,15 +115,22 @@ namespace YouTubeTimeLineGenerator
         //}
 
         private void button_processVTT_Click(object sender, EventArgs e)
-        {            
-            button_loadToSeperate.Enabled = true;
-            textBox_vttResult.Clear();
-            mySubtitle.Clear();
-            if (radioButton_VTT.Checked == true)
-                processVTT();
-            else
-                processXML();
-            button_processVTT.Text = "OK!";
+        {
+            try
+            {
+                button_loadToSeperate.Enabled = true;
+                textBox_vttResult.Clear();
+                mySubtitle.Clear();
+                if (radioButton_VTT.Checked == true)
+                    processVTT();
+                else
+                    processXML();
+                button_processVTT.Text = "OK!";
+            }
+            catch
+            {
+                Debug.Print(e.ToString());
+            }
         }
 
         private string msToTime(string ms)
@@ -164,7 +171,7 @@ namespace YouTubeTimeLineGenerator
                 string sWordStart;
                 string sWordEnd;
                 foreach (XmlNode p in ps)
-                {   
+                {
                     if (p.ChildNodes.Count != 0)
                     {
                         //Debug.WriteLine(p.InnerXml);
@@ -189,7 +196,7 @@ namespace YouTubeTimeLineGenerator
                                         sWordStart = p.Attributes["t"].Value;
                                         if (s.NextSibling == null)
                                         {
-                                            if (psFlag == ps.Count -1)
+                                            if (psFlag == ps.Count - 1)
                                             {
                                                 //s is the final word, which means there is no more lines, WordEnd should be LineStart + Duration, which is a bit longer than normal ones.
                                                 sWordEnd = (Convert.ToInt32(p.Attributes["t"].Value) + Convert.ToInt32(p.Attributes["d"].Value)).ToString();
@@ -216,7 +223,7 @@ namespace YouTubeTimeLineGenerator
                                         {
                                             //s is the last word.
                                             //s maybe the final word.
-                                            if (psFlag == ps.Count -1)
+                                            if (psFlag == ps.Count - 1)
                                             {
                                                 //s is the final word, which means there is no more lines, WordEnd should be LineStart + Duration, which is a bit longer than normal ones.
                                                 sWordEnd = (Convert.ToInt32(p.Attributes["t"].Value) + Convert.ToInt32(p.Attributes["d"].Value)).ToString();
@@ -257,7 +264,7 @@ namespace YouTubeTimeLineGenerator
 
         private void processVTT()
         {
-            
+
             //when it's a timed line
             //00:00:24.510 --> 00:00:27.170 align:start position:0%
             //(\d{2}:\d{2}:\d{2}.\d{3})                 $1              00:00:24.510
@@ -320,7 +327,7 @@ namespace YouTubeTimeLineGenerator
         }
 
         private void generateRichText()
-        {            
+        {
             //Random rnd = new Random();          
             foreach (var ms in mySubtitle)
             {
@@ -357,7 +364,7 @@ namespace YouTubeTimeLineGenerator
             List<int> selectedItemIndexes = new List<int>();
             string assTimeStart = input[0].WordStart;
             string assTimeEnd = "";
-            string assContent = "";            
+            string assContent = "";
             foreach (var m in input)
             {
                 //if( m.TimeStart.Length < 5)
@@ -371,14 +378,21 @@ namespace YouTubeTimeLineGenerator
                     assContent = "";
                     assTimeStart = m.WordEnd;
                 }
-            }            
+            }
         }
 
         private void button_convertToAss_Click(object sender, EventArgs e)
         {
-            generateASS(mySubtitle);
+            try
+            {
+                generateASS(mySubtitle);
+            }
+            catch
+            {
+                Debug.Print(e.ToString());
+            }
         }
-        
+
 
         private void textBox_vtt_DragDrop(object sender, DragEventArgs e)
         {
@@ -407,10 +421,10 @@ namespace YouTubeTimeLineGenerator
         private void button_loadToSeperate_Click(object sender, EventArgs e)
         {
             richTextBox_Words.Clear();
-            for(int i=0;i<mySubtitle.Count;i++)
+            for (int i = 0; i < mySubtitle.Count; i++)
             {
                 mySubtitle[i].Selected = false;
-            }        
+            }
             richTextBox_Words.Enabled = true;
             if (radioButton_VTT.Checked == true)
             {
@@ -422,14 +436,14 @@ namespace YouTubeTimeLineGenerator
         }
 
         private void richTextBox_Words_MouseUp(object sender, MouseEventArgs e)
-        {            
+        {
             RichTextBox box = (RichTextBox)sender;
-            
+
             int ClickIndex = box.GetCharIndexFromPosition(new Point(e.X, e.Y));
-            
+
             int lastSpacePosition = box.Find(" ", 0, ClickIndex, RichTextBoxFinds.Reverse);
 
-            int WordIndex = mySubtitle.FindIndex(x => x.Position == lastSpacePosition+1);
+            int WordIndex = mySubtitle.FindIndex(x => x.Position == lastSpacePosition + 1);
             //if ((WordIndex < 0) || (WordIndex > mySubtitle.Count - 1))
             //    WordIndex = mySubtitle.Count - 1;            
             if (mySubtitle[WordIndex].Selected)
@@ -447,7 +461,7 @@ namespace YouTubeTimeLineGenerator
                 richTextBox_Words.SelectionLength = 1;
                 richTextBox_Words.SelectionBackColor = Color.Red;
                 richTextBox_Words.SelectionLength = 0;
-            }            
+            }
         }
 
         private void button_color_Click(object sender, EventArgs e)
@@ -478,5 +492,9 @@ namespace YouTubeTimeLineGenerator
             increaseFontSize(1);
         }
 
+        private void Form1_SizeChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
