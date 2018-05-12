@@ -13,6 +13,9 @@ My website is http://sofronio.cn , and the latest version will be there. Have a 
 
 ## Change log
 
+### v.0.0.3.1
+Fix can't display whole UI, change to tablelayout
+
 ### v.0.0.3
 Add YouTube XML support, now you can get it by F12 of your browser. See usage above
 
