@@ -36,6 +36,7 @@
             this.textBox_vttResult = new System.Windows.Forms.TextBox();
             this.radioButton_VTT = new System.Windows.Forms.RadioButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.radioButton_XML = new System.Windows.Forms.RadioButton();
             this.richTextBox_Words = new System.Windows.Forms.RichTextBox();
             this.button_loadToSeperate = new System.Windows.Forms.Button();
@@ -47,22 +48,21 @@
             this.tableLayoutPanel_button = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel_output = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel_outputbutton = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel_all.SuspendLayout();
             this.tableLayoutPanel_button.SuspendLayout();
             this.tableLayoutPanel_output.SuspendLayout();
             this.tableLayoutPanel_outputbutton.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button_processVTT
             // 
             this.button_processVTT.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button_processVTT.Location = new System.Drawing.Point(270, 3);
+            this.button_processVTT.Location = new System.Drawing.Point(266, 0);
             this.button_processVTT.Margin = new System.Windows.Forms.Padding(15, 0, 15, 15);
             this.button_processVTT.Name = "button_processVTT";
-            this.button_processVTT.Size = new System.Drawing.Size(261, 106);
+            this.button_processVTT.Size = new System.Drawing.Size(221, 140);
             this.button_processVTT.TabIndex = 30;
             this.button_processVTT.Text = "Process VTT";
             this.button_processVTT.UseVisualStyleBackColor = true;
@@ -97,10 +97,10 @@
             // button_convertToAss
             // 
             this.button_convertToAss.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button_convertToAss.Location = new System.Drawing.Point(1071, 3);
+            this.button_convertToAss.Location = new System.Drawing.Point(1019, 0);
             this.button_convertToAss.Margin = new System.Windows.Forms.Padding(15, 0, 0, 15);
             this.button_convertToAss.Name = "button_convertToAss";
-            this.button_convertToAss.Size = new System.Drawing.Size(264, 106);
+            this.button_convertToAss.Size = new System.Drawing.Size(236, 140);
             this.button_convertToAss.TabIndex = 50;
             this.button_convertToAss.Text = "Convert to ASS";
             this.button_convertToAss.UseVisualStyleBackColor = true;
@@ -108,7 +108,7 @@
             // 
             // textBox_vttResult
             // 
-            this.textBox_vttResult.Location = new System.Drawing.Point(804, 3);
+            this.textBox_vttResult.Location = new System.Drawing.Point(756, 3);
             this.textBox_vttResult.Multiline = true;
             this.textBox_vttResult.Name = "textBox_vttResult";
             this.textBox_vttResult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
@@ -124,7 +124,7 @@
             this.radioButton_VTT.Dock = System.Windows.Forms.DockStyle.Fill;
             this.radioButton_VTT.Location = new System.Drawing.Point(3, 3);
             this.radioButton_VTT.Name = "radioButton_VTT";
-            this.radioButton_VTT.Size = new System.Drawing.Size(255, 35);
+            this.radioButton_VTT.Size = new System.Drawing.Size(215, 52);
             this.radioButton_VTT.TabIndex = 10;
             this.radioButton_VTT.TabStop = true;
             this.radioButton_VTT.Text = "Auto VTT";
@@ -134,22 +134,38 @@
             // 
             this.groupBox1.Controls.Add(this.tableLayoutPanel1);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
+            this.groupBox1.Location = new System.Drawing.Point(15, 0);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(15, 0, 15, 15);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBox1.Size = new System.Drawing.Size(261, 106);
+            this.groupBox1.Size = new System.Drawing.Size(221, 140);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "File Type";
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Controls.Add(this.radioButton_VTT, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.radioButton_XML, 0, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 24);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(221, 116);
+            this.tableLayoutPanel1.TabIndex = 11;
             // 
             // radioButton_XML
             // 
             this.radioButton_XML.AutoSize = true;
             this.radioButton_XML.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.radioButton_XML.Location = new System.Drawing.Point(3, 44);
+            this.radioButton_XML.Location = new System.Drawing.Point(3, 61);
             this.radioButton_XML.Name = "radioButton_XML";
-            this.radioButton_XML.Size = new System.Drawing.Size(255, 35);
+            this.radioButton_XML.Size = new System.Drawing.Size(215, 52);
             this.radioButton_XML.TabIndex = 20;
             this.radioButton_XML.Text = "Auto XML";
             this.radioButton_XML.UseVisualStyleBackColor = true;
@@ -172,10 +188,10 @@
             // 
             this.button_loadToSeperate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button_loadToSeperate.Enabled = false;
-            this.button_loadToSeperate.Location = new System.Drawing.Point(537, 3);
+            this.button_loadToSeperate.Location = new System.Drawing.Point(517, 0);
             this.button_loadToSeperate.Margin = new System.Windows.Forms.Padding(15, 0, 15, 15);
             this.button_loadToSeperate.Name = "button_loadToSeperate";
-            this.button_loadToSeperate.Size = new System.Drawing.Size(261, 106);
+            this.button_loadToSeperate.Size = new System.Drawing.Size(221, 140);
             this.button_loadToSeperate.TabIndex = 40;
             this.button_loadToSeperate.Text = "Load Words";
             this.button_loadToSeperate.UseVisualStyleBackColor = true;
@@ -296,25 +312,9 @@
             this.tableLayoutPanel_outputbutton.Name = "tableLayoutPanel_outputbutton";
             this.tableLayoutPanel_outputbutton.RowCount = 1;
             this.tableLayoutPanel_outputbutton.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel_outputbutton.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 112F));
+            this.tableLayoutPanel_outputbutton.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 155F));
             this.tableLayoutPanel_outputbutton.Size = new System.Drawing.Size(1255, 155);
             this.tableLayoutPanel_outputbutton.TabIndex = 1;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Controls.Add(this.radioButton_VTT, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.radioButton_XML, 0, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 24);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(261, 82);
-            this.tableLayoutPanel1.TabIndex = 11;
             // 
             // Form1
             // 
@@ -324,17 +324,17 @@
             this.Controls.Add(this.tableLayoutPanel_all);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "YouTubeTimeLineGenerator v0.0.3.1 by Sofronio";
+            this.Text = "YouTubeTimeLineGenerator v0.0.3.2 by Sofronio";
             this.SizeChanged += new System.EventHandler(this.Form1_SizeChanged);
             this.groupBox1.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.tableLayoutPanel_all.ResumeLayout(false);
             this.tableLayoutPanel_all.PerformLayout();
             this.tableLayoutPanel_button.ResumeLayout(false);
             this.tableLayoutPanel_output.ResumeLayout(false);
             this.tableLayoutPanel_outputbutton.ResumeLayout(false);
             this.tableLayoutPanel_outputbutton.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

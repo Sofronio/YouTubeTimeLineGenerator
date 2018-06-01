@@ -333,7 +333,7 @@ namespace YouTubeTimeLineGenerator
             {
                 //Color randomColor = Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
                 richTextBox_Words.Select(richTextBox_Words.TextLength, 0);
-                richTextBox_Words.SelectionFont = new Font(richTextBox_Words.SelectedText, 12);
+                richTextBox_Words.SelectionFont = new Font("Tahoma", 12);
                 //richTextBox2.SelectionColor = randomColor;
                 richTextBox_Words.AppendText(ms.Content + " ");
             }
