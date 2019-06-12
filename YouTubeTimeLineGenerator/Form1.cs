@@ -288,9 +288,9 @@ namespace YouTubeTimeLineGenerator
             string sWordEnd = "";
             int sPosition = 0;
 
-            for (int i = 10; i < textBox_vtt.Lines.Count(); i = i + 8)
+            foreach (String l in textBox_vtt.Lines)
             {
-                sContent += textBox_vtt.Lines[i] + "\r\n" + textBox_vtt.Lines[i + 2] + "\r\n";
+                if (Regex.IsMatch(l, patternContent)) sContent += l + "\r\n";
             }
 
             textBox_vttResult.Text = sContent;
@@ -333,7 +333,7 @@ namespace YouTubeTimeLineGenerator
             {
                 //Color randomColor = Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
                 richTextBox_Words.Select(richTextBox_Words.TextLength, 0);
-                richTextBox_Words.SelectionFont = new Font(richTextBox_Words.SelectedText, 12);
+                richTextBox_Words.SelectionFont = new Font("Serif", 15);
                 //richTextBox2.SelectionColor = randomColor;
                 richTextBox_Words.AppendText(ms.Content + " ");
             }
