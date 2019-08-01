@@ -288,7 +288,19 @@ namespace YouTubeTimeLineGenerator
             string sWordEnd = "";
             int sPosition = 0;
 
-            for (int i = 10; i < textBox_vtt.Lines.Count(); i = i + 8)
+            //Find the position that timeline start.
+            int ContentStart = 0;
+            foreach (var text in textBox_vtt.Lines)
+            {
+                if (Regex.IsMatch(text, patternTime))
+                {
+                    break;
+                }
+                ContentStart++;
+            }
+
+            //remove redundent spaces and returns.
+            for (int i = ContentStart; i < textBox_vtt.Lines.Count(); i = i + 8)
             {
                 sContent += textBox_vtt.Lines[i] + "\r\n" + textBox_vtt.Lines[i + 2] + "\r\n";
             }
