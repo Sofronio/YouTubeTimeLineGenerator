@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -261,7 +261,17 @@ namespace YouTubeTimeLineGenerator
                 }
             }
         }
+        private void processSingleword()
+        {
+            string patternSingleword = @"(.*\%(\n|\r|\r\n))(\w+)(\n|\r|\r\n)(\s(\n|\r|\r\n))";
+            //\w+$(\n|\r|\r\n)\s
+            //if (Regex.IsMatch(textBox_vtt.Text, patternSingleword))
+            //{
+            //    this.Text = "go!";
+            //}
+            textBox_vtt.Text = Regex.Replace(textBox_vtt.Text, patternSingleword, "$1$3</c>$4$5");
 
+        }
         private void processVTT()
         {
 
@@ -281,6 +291,8 @@ namespace YouTubeTimeLineGenerator
             //<(?<WordEnd>\d{2}:\d{2}:\d{2}.\d{3})?     get WordEnd     have 0 or one time "00:21:54.539", if it's the end, there would be no time;
             string patternContent = @"(?<Content>(\w+')?(\w+))(<\/?c.*?>)*<(?<WordEnd>\d{2}:\d{2}:\d{2}.\d{3})?";
 
+
+
             string LineStart = "";
             string LineEnd = "";
             string sContent = "";
@@ -288,21 +300,11 @@ namespace YouTubeTimeLineGenerator
             string sWordEnd = "";
             int sPosition = 0;
 
-            //Find the position that timeline start.
-            int ContentStart = 0;
-            foreach (var text in textBox_vtt.Lines)
-            {
-                if (Regex.IsMatch(text, patternTime))
-                {
-                    break;
-                }
-                ContentStart++;
-            }
+            processSingleword();
 
-            //remove redundent spaces and returns.
-            for (int i = ContentStart; i < textBox_vtt.Lines.Count(); i = i + 8)
+            foreach (string rawLines in textBox_vtt.Lines)
             {
-                if (Regex.IsMatch(l, patternContent)) sContent += l + "\r\n";
+                if (Regex.IsMatch(rawLines, patternContent)) sContent += rawLines + "\r\n";
             }
 
             textBox_vttResult.Text = sContent;
@@ -333,6 +335,10 @@ namespace YouTubeTimeLineGenerator
                             sPosition = sPosition + m.Groups["Content"].Value.Length + 1;
                             sWordStart = sWordEnd;
                         }
+                    }
+                    else
+                    {
+                        richTextBox_ass.AppendText(text);
                     }
                 }
             }

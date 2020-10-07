@@ -119,11 +119,9 @@
   </resheader>
   <data name="richTextBox_ass.Text" xml:space="preserve">
     <value>Download VTT Auto-subtitles using youtube-dl. Find more: https://rg3.github.io/youtube-dl/
-VTT Usage: youtube-dl --skip-download --write-auto-sub --sub-format vtt http://youtube.com/xxxx
-XML Usage: Openup a YouTube video, then Press F12, type timedtext, then download the file.
-
-After the VTT file is loaded, click on the words to set the end of the sentence. The separator will be placed at the end of the word you clicked on.
-
+ - VTT Usage: youtube-dl --skip-download --write-auto-sub --sub-format vtt http://youtube.com/xxxx
+ - XML Usage: Openup a YouTube video, then Press F12, type timedtext, then download the file.
+ - After the VTT file is loaded, click on the words to set the end of the sentence. The separator will be placed at the end of the word you clicked on.
 If you find this useful, please consider supporting me. Alipay: xbox2xbox@gmail.com
 My website is http://sofronio.cn , and the latest version will be there. Have a good day.</value>
   </data>
