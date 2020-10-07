@@ -261,7 +261,17 @@ namespace YouTubeTimeLineGenerator
                 }
             }
         }
+        private void processSingleword()
+        {
+            string patternSingleword = @"(.*\%(\n|\r|\r\n))(\w+)(\n|\r|\r\n)(\s(\n|\r|\r\n))";
+            //\w+$(\n|\r|\r\n)\s
+            //if (Regex.IsMatch(textBox_vtt.Text, patternSingleword))
+            //{
+            //    this.Text = "go!";
+            //}
+            textBox_vtt.Text = Regex.Replace(textBox_vtt.Text, patternSingleword, "$1$3</c>$4$5");
 
+        }
         private void processVTT()
         {
 
@@ -281,6 +291,8 @@ namespace YouTubeTimeLineGenerator
             //<(?<WordEnd>\d{2}:\d{2}:\d{2}.\d{3})?     get WordEnd     have 0 or one time "00:21:54.539", if it's the end, there would be no time;
             string patternContent = @"(?<Content>(\w+')?(\w+))(<\/?c.*?>)*<(?<WordEnd>\d{2}:\d{2}:\d{2}.\d{3})?";
 
+
+
             string LineStart = "";
             string LineEnd = "";
             string sContent = "";
@@ -288,9 +300,11 @@ namespace YouTubeTimeLineGenerator
             string sWordEnd = "";
             int sPosition = 0;
 
-            foreach (String l in textBox_vtt.Lines)
+            processSingleword();
+
+            foreach (string rawLines in textBox_vtt.Lines)
             {
-                if (Regex.IsMatch(l, patternContent)) sContent += l + "\r\n";
+                if (Regex.IsMatch(rawLines, patternContent)) sContent += rawLines + "\r\n";
             }
 
             textBox_vttResult.Text = sContent;
@@ -322,6 +336,10 @@ namespace YouTubeTimeLineGenerator
                             sWordStart = sWordEnd;
                         }
                     }
+                    else
+                    {
+                        richTextBox_ass.AppendText(text);
+                    }
                 }
             }
         }
@@ -333,7 +351,7 @@ namespace YouTubeTimeLineGenerator
             {
                 //Color randomColor = Color.FromArgb(rnd.Next(256), rnd.Next(256), rnd.Next(256));
                 richTextBox_Words.Select(richTextBox_Words.TextLength, 0);
-                richTextBox_Words.SelectionFont = new Font("Serif", 15);
+                richTextBox_Words.SelectionFont = new Font("Tahoma", 12);
                 //richTextBox2.SelectionColor = randomColor;
                 richTextBox_Words.AppendText(ms.Content + " ");
             }
