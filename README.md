@@ -13,7 +13,7 @@ My website is http://sofronio.cn , and the latest version will be there. Have a 
 
 ## Change log
 
-### v.0.0.3.3
+### v.0.0.3.4
 Fix sometimes one word is missing
 
 ### v.0.0.3.1
