@@ -1,4 +1,4 @@
-﻿namespace YouTubeTimeLineGenerator
+namespace YouTubeTimeLineGenerator
 {
     partial class Form1
     {

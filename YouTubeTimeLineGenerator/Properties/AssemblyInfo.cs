@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Sofronio.cn")]
 [assembly: AssemblyProduct("YouTubeTimeLineGenerator")]
-[assembly: AssemblyCopyright("Copyright © Sofronio 2018")]
+[assembly: AssemblyCopyright("Copyright © Sofronio 2019")]
 [assembly: AssemblyTrademark("Sofronio.cn")]
 [assembly: AssemblyCulture("")]
 
