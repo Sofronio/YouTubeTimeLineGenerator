@@ -122,7 +122,8 @@
             this.radioButton_VTT.AutoSize = true;
             this.radioButton_VTT.Checked = true;
             this.radioButton_VTT.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.radioButton_VTT.Location = new System.Drawing.Point(3, 3);
+            this.radioButton_VTT.Location = new System.Drawing.Point(2, 2);
+            this.radioButton_VTT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.radioButton_VTT.Name = "radioButton_VTT";
             this.radioButton_VTT.Size = new System.Drawing.Size(236, 61);
             this.radioButton_VTT.TabIndex = 10;
@@ -308,7 +309,8 @@
             this.tableLayoutPanel_outputbutton.Controls.Add(this.textBox_vttResult, 3, 0);
             this.tableLayoutPanel_outputbutton.Controls.Add(this.button_loadToSeperate, 2, 0);
             this.tableLayoutPanel_outputbutton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel_outputbutton.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel_outputbutton.Location = new System.Drawing.Point(2, 2);
+            this.tableLayoutPanel_outputbutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tableLayoutPanel_outputbutton.Name = "tableLayoutPanel_outputbutton";
             this.tableLayoutPanel_outputbutton.RowCount = 1;
             this.tableLayoutPanel_outputbutton.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -323,6 +325,7 @@
             this.ClientSize = new System.Drawing.Size(2029, 1383);
             this.Controls.Add(this.tableLayoutPanel_all);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Form1";
             this.Text = "YouTubeTimeLineGenerator v0.0.3.3 by Sofronio";
             this.SizeChanged += new System.EventHandler(this.Form1_SizeChanged);

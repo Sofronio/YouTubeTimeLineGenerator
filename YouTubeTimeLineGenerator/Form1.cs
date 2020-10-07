@@ -302,7 +302,7 @@ namespace YouTubeTimeLineGenerator
             //remove redundent spaces and returns.
             for (int i = ContentStart; i < textBox_vtt.Lines.Count(); i = i + 8)
             {
-                sContent += textBox_vtt.Lines[i] + "\r\n" + textBox_vtt.Lines[i + 2] + "\r\n";
+                if (Regex.IsMatch(l, patternContent)) sContent += l + "\r\n";
             }
 
             textBox_vttResult.Text = sContent;
