@@ -13,6 +13,9 @@ My website is http://sofronio.cn , and the latest version will be there. Have a 
 
 ## Change log
 
+### v.0.0.3.5
+Fix missing words before domain .com
+
 ### v.0.0.3.4
 Fix sometimes one word is missing
 
