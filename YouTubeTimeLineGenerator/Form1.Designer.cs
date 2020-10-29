@@ -323,7 +323,7 @@ namespace YouTubeTimeLineGenerator
             this.Controls.Add(this.tableLayoutPanel_all);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "YouTubeTimeLineGenerator v0.0.3.4 by Sofronio";
+            this.Text = "YouTubeTimeLineGenerator v0.0.3.5 by Sofronio";
             this.SizeChanged += new System.EventHandler(this.Form1_SizeChanged);
             this.groupBox1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

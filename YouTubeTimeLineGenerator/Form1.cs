@@ -289,7 +289,7 @@ namespace YouTubeTimeLineGenerator
             //(?<Content>(\w+')?(\w+))                  get Content
             //(<\/?c.*?>)*                              drop            </c></c.colorFFFFFF>
             //<(?<WordEnd>\d{2}:\d{2}:\d{2}.\d{3})?     get WordEnd     have 0 or one time "00:21:54.539", if it's the end, there would be no time;
-            string patternContent = @"(?<Content>(\w+')?(\w+))(<\/?c.*?>)*<(?<WordEnd>\d{2}:\d{2}:\d{2}.\d{3})?";
+            string patternContent = @"(?<Content>(\w+')?([\w\.]+))(<\/?c.*?>)*<(?<WordEnd>\d{2}:\d{2}:\d{2}.\d{3})?";
 
 
 
@@ -308,7 +308,7 @@ namespace YouTubeTimeLineGenerator
             }
 
             textBox_vttResult.Text = sContent;
-            foreach (var text in textBox_vttResult.Lines)
+            foreach (var text in textBox_vtt.Lines)
             {
                 //match TimeLine                
                 if (Regex.IsMatch(text, patternTime))
