@@ -48,21 +48,27 @@ namespace YouTubeTimeLineGenerator
             this.tableLayoutPanel_button = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel_output = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel_outputbutton = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel_autoSegmentation = new System.Windows.Forms.TableLayoutPanel();
+            this.textBox_autoSegmentDataSourceFilePath = new System.Windows.Forms.TextBox();
+            this.trackBar_autoSegmentThreshold = new System.Windows.Forms.TrackBar();
+            this.button_autoSegment = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel_all.SuspendLayout();
             this.tableLayoutPanel_button.SuspendLayout();
             this.tableLayoutPanel_output.SuspendLayout();
             this.tableLayoutPanel_outputbutton.SuspendLayout();
+            this.tableLayoutPanel_autoSegmentation.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar_autoSegmentThreshold)).BeginInit();
             this.SuspendLayout();
             // 
             // button_processVTT
             // 
             this.button_processVTT.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button_processVTT.Location = new System.Drawing.Point(126, 0);
+            this.button_processVTT.Location = new System.Drawing.Point(134, 0);
             this.button_processVTT.Margin = new System.Windows.Forms.Padding(8, 0, 8, 9);
             this.button_processVTT.Name = "button_processVTT";
-            this.button_processVTT.Size = new System.Drawing.Size(102, 58);
+            this.button_processVTT.Size = new System.Drawing.Size(110, 58);
             this.button_processVTT.TabIndex = 30;
             this.button_processVTT.Text = "Process VTT";
             this.button_processVTT.UseVisualStyleBackColor = true;
@@ -72,11 +78,11 @@ namespace YouTubeTimeLineGenerator
             // 
             this.textBox_vtt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.textBox_vtt.Location = new System.Drawing.Point(16, 16);
-            this.textBox_vtt.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox_vtt.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_vtt.Multiline = true;
             this.textBox_vtt.Name = "textBox_vtt";
             this.textBox_vtt.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBox_vtt.Size = new System.Drawing.Size(252, 205);
+            this.textBox_vtt.Size = new System.Drawing.Size(270, 205);
             this.textBox_vtt.TabIndex = 100;
             this.textBox_vtt.Text = "Drag and Drop your YouTube VTT file here.";
             this.textBox_vtt.WordWrap = false;
@@ -90,17 +96,17 @@ namespace YouTubeTimeLineGenerator
             this.richTextBox_ass.Margin = new System.Windows.Forms.Padding(9, 9, 0, 0);
             this.richTextBox_ass.Name = "richTextBox_ass";
             this.richTextBox_ass.ScrollBars = System.Windows.Forms.RichTextBoxScrollBars.ForcedBoth;
-            this.richTextBox_ass.Size = new System.Drawing.Size(587, 125);
+            this.richTextBox_ass.Size = new System.Drawing.Size(629, 125);
             this.richTextBox_ass.TabIndex = 80;
             this.richTextBox_ass.Text = resources.GetString("richTextBox_ass.Text");
             // 
             // button_convertToAss
             // 
             this.button_convertToAss.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button_convertToAss.Location = new System.Drawing.Point(480, 0);
+            this.button_convertToAss.Location = new System.Drawing.Point(512, 0);
             this.button_convertToAss.Margin = new System.Windows.Forms.Padding(8, 0, 0, 9);
             this.button_convertToAss.Name = "button_convertToAss";
-            this.button_convertToAss.Size = new System.Drawing.Size(112, 58);
+            this.button_convertToAss.Size = new System.Drawing.Size(122, 58);
             this.button_convertToAss.TabIndex = 50;
             this.button_convertToAss.Text = "Convert to ASS";
             this.button_convertToAss.UseVisualStyleBackColor = true;
@@ -108,8 +114,8 @@ namespace YouTubeTimeLineGenerator
             // 
             // textBox_vttResult
             // 
-            this.textBox_vttResult.Location = new System.Drawing.Point(356, 2);
-            this.textBox_vttResult.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBox_vttResult.Location = new System.Drawing.Point(380, 2);
+            this.textBox_vttResult.Margin = new System.Windows.Forms.Padding(2);
             this.textBox_vttResult.Multiline = true;
             this.textBox_vttResult.Name = "textBox_vttResult";
             this.textBox_vttResult.ScrollBars = System.Windows.Forms.ScrollBars.Both;
@@ -124,9 +130,9 @@ namespace YouTubeTimeLineGenerator
             this.radioButton_VTT.Checked = true;
             this.radioButton_VTT.Dock = System.Windows.Forms.DockStyle.Fill;
             this.radioButton_VTT.Location = new System.Drawing.Point(2, 2);
-            this.radioButton_VTT.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton_VTT.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton_VTT.Name = "radioButton_VTT";
-            this.radioButton_VTT.Size = new System.Drawing.Size(98, 18);
+            this.radioButton_VTT.Size = new System.Drawing.Size(106, 18);
             this.radioButton_VTT.TabIndex = 10;
             this.radioButton_VTT.TabStop = true;
             this.radioButton_VTT.Text = "Auto VTT";
@@ -140,7 +146,7 @@ namespace YouTubeTimeLineGenerator
             this.groupBox1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 9);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(0);
-            this.groupBox1.Size = new System.Drawing.Size(102, 58);
+            this.groupBox1.Size = new System.Drawing.Size(110, 58);
             this.groupBox1.TabIndex = 10;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "File Type";
@@ -154,12 +160,12 @@ namespace YouTubeTimeLineGenerator
             this.tableLayoutPanel1.Controls.Add(this.radioButton_XML, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 14);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(102, 44);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(110, 44);
             this.tableLayoutPanel1.TabIndex = 11;
             // 
             // radioButton_XML
@@ -167,9 +173,9 @@ namespace YouTubeTimeLineGenerator
             this.radioButton_XML.AutoSize = true;
             this.radioButton_XML.Dock = System.Windows.Forms.DockStyle.Fill;
             this.radioButton_XML.Location = new System.Drawing.Point(2, 24);
-            this.radioButton_XML.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton_XML.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton_XML.Name = "radioButton_XML";
-            this.radioButton_XML.Size = new System.Drawing.Size(98, 18);
+            this.radioButton_XML.Size = new System.Drawing.Size(106, 18);
             this.radioButton_XML.TabIndex = 20;
             this.radioButton_XML.Text = "Auto XML";
             this.radioButton_XML.UseVisualStyleBackColor = true;
@@ -180,11 +186,11 @@ namespace YouTubeTimeLineGenerator
             this.tableLayoutPanel_all.SetColumnSpan(this.richTextBox_Words, 2);
             this.richTextBox_Words.Dock = System.Windows.Forms.DockStyle.Fill;
             this.richTextBox_Words.Enabled = false;
-            this.richTextBox_Words.Location = new System.Drawing.Point(16, 286);
-            this.richTextBox_Words.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.richTextBox_Words.Location = new System.Drawing.Point(16, 287);
+            this.richTextBox_Words.Margin = new System.Windows.Forms.Padding(2);
             this.richTextBox_Words.Name = "richTextBox_Words";
             this.richTextBox_Words.ReadOnly = true;
-            this.richTextBox_Words.Size = new System.Drawing.Size(852, 259);
+            this.richTextBox_Words.Size = new System.Drawing.Size(912, 258);
             this.richTextBox_Words.TabIndex = 11;
             this.richTextBox_Words.Text = "";
             this.richTextBox_Words.MouseUp += new System.Windows.Forms.MouseEventHandler(this.richTextBox_Words_MouseUp);
@@ -193,10 +199,10 @@ namespace YouTubeTimeLineGenerator
             // 
             this.button_loadToSeperate.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button_loadToSeperate.Enabled = false;
-            this.button_loadToSeperate.Location = new System.Drawing.Point(244, 0);
+            this.button_loadToSeperate.Location = new System.Drawing.Point(260, 0);
             this.button_loadToSeperate.Margin = new System.Windows.Forms.Padding(8, 0, 8, 9);
             this.button_loadToSeperate.Name = "button_loadToSeperate";
-            this.button_loadToSeperate.Size = new System.Drawing.Size(102, 58);
+            this.button_loadToSeperate.Size = new System.Drawing.Size(110, 58);
             this.button_loadToSeperate.TabIndex = 40;
             this.button_loadToSeperate.Text = "Load Words";
             this.button_loadToSeperate.UseVisualStyleBackColor = true;
@@ -209,7 +215,7 @@ namespace YouTubeTimeLineGenerator
             this.button_color.Margin = new System.Windows.Forms.Padding(8, 9, 8, 9);
             this.button_color.Name = "button_color";
             this.button_color.Padding = new System.Windows.Forms.Padding(8, 9, 8, 9);
-            this.button_color.Size = new System.Drawing.Size(138, 40);
+            this.button_color.Size = new System.Drawing.Size(156, 41);
             this.button_color.TabIndex = 13;
             this.button_color.Text = "Color";
             this.button_color.UseVisualStyleBackColor = true;
@@ -223,7 +229,7 @@ namespace YouTubeTimeLineGenerator
             this.button_decrease.Margin = new System.Windows.Forms.Padding(0, 9, 1, 9);
             this.button_decrease.Name = "button_decrease";
             this.button_decrease.Padding = new System.Windows.Forms.Padding(8, 9, 8, 9);
-            this.button_decrease.Size = new System.Drawing.Size(48, 40);
+            this.button_decrease.Size = new System.Drawing.Size(48, 41);
             this.button_decrease.TabIndex = 70;
             this.button_decrease.TabStop = false;
             this.button_decrease.Text = "-";
@@ -237,7 +243,7 @@ namespace YouTubeTimeLineGenerator
             this.button_increase.Margin = new System.Windows.Forms.Padding(0, 9, 1, 9);
             this.button_increase.Name = "button_increase";
             this.button_increase.Padding = new System.Windows.Forms.Padding(8, 9, 8, 9);
-            this.button_increase.Size = new System.Drawing.Size(48, 40);
+            this.button_increase.Size = new System.Drawing.Size(48, 41);
             this.button_increase.TabIndex = 60;
             this.button_increase.TabStop = false;
             this.button_increase.Text = "+";
@@ -254,16 +260,17 @@ namespace YouTubeTimeLineGenerator
             this.tableLayoutPanel_all.Controls.Add(this.tableLayoutPanel_button, 0, 1);
             this.tableLayoutPanel_all.Controls.Add(this.textBox_vtt, 0, 0);
             this.tableLayoutPanel_all.Controls.Add(this.tableLayoutPanel_output, 1, 0);
+            this.tableLayoutPanel_all.Controls.Add(this.tableLayoutPanel_autoSegmentation, 1, 1);
             this.tableLayoutPanel_all.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel_all.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel_all.Margin = new System.Windows.Forms.Padding(14, 14, 14, 14);
+            this.tableLayoutPanel_all.Margin = new System.Windows.Forms.Padding(14);
             this.tableLayoutPanel_all.Name = "tableLayoutPanel_all";
-            this.tableLayoutPanel_all.Padding = new System.Windows.Forms.Padding(14, 14, 14, 14);
+            this.tableLayoutPanel_all.Padding = new System.Windows.Forms.Padding(14);
             this.tableLayoutPanel_all.RowCount = 3;
             this.tableLayoutPanel_all.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 44.44444F));
             this.tableLayoutPanel_all.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel_all.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 55.55556F));
-            this.tableLayoutPanel_all.Size = new System.Drawing.Size(884, 561);
+            this.tableLayoutPanel_all.Size = new System.Drawing.Size(944, 561);
             this.tableLayoutPanel_all.TabIndex = 19;
             // 
             // tableLayoutPanel_button
@@ -277,11 +284,11 @@ namespace YouTubeTimeLineGenerator
             this.tableLayoutPanel_button.Controls.Add(this.button_decrease, 1, 0);
             this.tableLayoutPanel_button.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel_button.Location = new System.Drawing.Point(16, 225);
-            this.tableLayoutPanel_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel_button.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel_button.Name = "tableLayoutPanel_button";
             this.tableLayoutPanel_button.RowCount = 1;
             this.tableLayoutPanel_button.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel_button.Size = new System.Drawing.Size(252, 57);
+            this.tableLayoutPanel_button.Size = new System.Drawing.Size(270, 58);
             this.tableLayoutPanel_button.TabIndex = 0;
             // 
             // tableLayoutPanel_output
@@ -292,13 +299,13 @@ namespace YouTubeTimeLineGenerator
             this.tableLayoutPanel_output.Controls.Add(this.richTextBox_ass, 0, 1);
             this.tableLayoutPanel_output.Controls.Add(this.tableLayoutPanel_outputbutton, 0, 0);
             this.tableLayoutPanel_output.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel_output.Location = new System.Drawing.Point(272, 16);
-            this.tableLayoutPanel_output.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel_output.Location = new System.Drawing.Point(290, 16);
+            this.tableLayoutPanel_output.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel_output.Name = "tableLayoutPanel_output";
             this.tableLayoutPanel_output.RowCount = 2;
             this.tableLayoutPanel_output.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 35F));
             this.tableLayoutPanel_output.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 65F));
-            this.tableLayoutPanel_output.Size = new System.Drawing.Size(596, 205);
+            this.tableLayoutPanel_output.Size = new System.Drawing.Size(638, 205);
             this.tableLayoutPanel_output.TabIndex = 12;
             // 
             // tableLayoutPanel_outputbutton
@@ -316,22 +323,77 @@ namespace YouTubeTimeLineGenerator
             this.tableLayoutPanel_outputbutton.Controls.Add(this.button_loadToSeperate, 2, 0);
             this.tableLayoutPanel_outputbutton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel_outputbutton.Location = new System.Drawing.Point(2, 2);
-            this.tableLayoutPanel_outputbutton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableLayoutPanel_outputbutton.Margin = new System.Windows.Forms.Padding(2);
             this.tableLayoutPanel_outputbutton.Name = "tableLayoutPanel_outputbutton";
             this.tableLayoutPanel_outputbutton.RowCount = 1;
             this.tableLayoutPanel_outputbutton.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel_outputbutton.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 90F));
-            this.tableLayoutPanel_outputbutton.Size = new System.Drawing.Size(592, 67);
+            this.tableLayoutPanel_outputbutton.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 67F));
+            this.tableLayoutPanel_outputbutton.Size = new System.Drawing.Size(634, 67);
             this.tableLayoutPanel_outputbutton.TabIndex = 1;
+            // 
+            // tableLayoutPanel_autoSegmentation
+            // 
+            this.tableLayoutPanel_autoSegmentation.ColumnCount = 3;
+            this.tableLayoutPanel_autoSegmentation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 78.52631F));
+            this.tableLayoutPanel_autoSegmentation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 21.47368F));
+            this.tableLayoutPanel_autoSegmentation.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 122F));
+            this.tableLayoutPanel_autoSegmentation.Controls.Add(this.textBox_autoSegmentDataSourceFilePath, 0, 0);
+            this.tableLayoutPanel_autoSegmentation.Controls.Add(this.trackBar_autoSegmentThreshold, 1, 0);
+            this.tableLayoutPanel_autoSegmentation.Controls.Add(this.button_autoSegment, 2, 0);
+            this.tableLayoutPanel_autoSegmentation.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel_autoSegmentation.Location = new System.Drawing.Point(291, 226);
+            this.tableLayoutPanel_autoSegmentation.Name = "tableLayoutPanel_autoSegmentation";
+            this.tableLayoutPanel_autoSegmentation.RowCount = 1;
+            this.tableLayoutPanel_autoSegmentation.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel_autoSegmentation.Size = new System.Drawing.Size(636, 56);
+            this.tableLayoutPanel_autoSegmentation.TabIndex = 101;
+            // 
+            // textBox_autoSegmentDataSourceFilePath
+            // 
+            this.textBox_autoSegmentDataSourceFilePath.AllowDrop = true;
+            this.textBox_autoSegmentDataSourceFilePath.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox_autoSegmentDataSourceFilePath.Location = new System.Drawing.Point(8, 3);
+            this.textBox_autoSegmentDataSourceFilePath.Margin = new System.Windows.Forms.Padding(8, 3, 3, 3);
+            this.textBox_autoSegmentDataSourceFilePath.Multiline = true;
+            this.textBox_autoSegmentDataSourceFilePath.Name = "textBox_autoSegmentDataSourceFilePath";
+            this.textBox_autoSegmentDataSourceFilePath.Size = new System.Drawing.Size(392, 50);
+            this.textBox_autoSegmentDataSourceFilePath.TabIndex = 0;
+            this.textBox_autoSegmentDataSourceFilePath.Text = "Drag and drop your BeatShowCore processed json file here.";
+            this.textBox_autoSegmentDataSourceFilePath.DragDrop += new System.Windows.Forms.DragEventHandler(this.textBox_autoSegmentDataSourceFilePath_DragDrop);
+            this.textBox_autoSegmentDataSourceFilePath.DragOver += new System.Windows.Forms.DragEventHandler(this.textBox_autoSegmentDataSourceFilePath_DragOver);
+            // 
+            // trackBar_autoSegmentThreshold
+            // 
+            this.trackBar_autoSegmentThreshold.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.trackBar_autoSegmentThreshold.LargeChange = 2;
+            this.trackBar_autoSegmentThreshold.Location = new System.Drawing.Point(406, 3);
+            this.trackBar_autoSegmentThreshold.Maximum = 20;
+            this.trackBar_autoSegmentThreshold.Name = "trackBar_autoSegmentThreshold";
+            this.trackBar_autoSegmentThreshold.Size = new System.Drawing.Size(104, 50);
+            this.trackBar_autoSegmentThreshold.TabIndex = 1;
+            this.trackBar_autoSegmentThreshold.TickFrequency = 5;
+            this.trackBar_autoSegmentThreshold.Value = 5;
+            // 
+            // button_autoSegment
+            // 
+            this.button_autoSegment.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button_autoSegment.Enabled = false;
+            this.button_autoSegment.Location = new System.Drawing.Point(516, 3);
+            this.button_autoSegment.Name = "button_autoSegment";
+            this.button_autoSegment.Size = new System.Drawing.Size(117, 50);
+            this.button_autoSegment.TabIndex = 2;
+            this.button_autoSegment.Text = "Segment";
+            this.button_autoSegment.UseVisualStyleBackColor = true;
+            this.button_autoSegment.Click += new System.EventHandler(this.button_autoSegment_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 561);
+            this.ClientSize = new System.Drawing.Size(944, 561);
             this.Controls.Add(this.tableLayoutPanel_all);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.Text = "YouTubeTimeLineGenerator v0.0.3.5 by Sofronio";
             this.SizeChanged += new System.EventHandler(this.Form1_SizeChanged);
@@ -344,6 +406,9 @@ namespace YouTubeTimeLineGenerator
             this.tableLayoutPanel_output.ResumeLayout(false);
             this.tableLayoutPanel_outputbutton.ResumeLayout(false);
             this.tableLayoutPanel_outputbutton.PerformLayout();
+            this.tableLayoutPanel_autoSegmentation.ResumeLayout(false);
+            this.tableLayoutPanel_autoSegmentation.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar_autoSegmentThreshold)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -373,6 +438,10 @@ namespace YouTubeTimeLineGenerator
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel_output;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel_outputbutton;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel_autoSegmentation;
+        private System.Windows.Forms.TextBox textBox_autoSegmentDataSourceFilePath;
+        private System.Windows.Forms.TrackBar trackBar_autoSegmentThreshold;
+        private System.Windows.Forms.Button button_autoSegment;
     }
 }
 
