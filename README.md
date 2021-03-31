@@ -3,23 +3,24 @@ It's quite painful to make TimeLines for videos. In recent years, YouTube had de
 
 ## Usage
 Download VTT Auto-subtitles using youtube-dl. Find more: https://rg3.github.io/youtube-dl/<br />
+<br />
 VTT Usage: youtube-dl --skip-download --write-auto-sub --sub-format vtt http://youtube.com/xxxx<br />
-**Recommended** XML Usage: youtube-dl --skip-download --write-auto-sub --sub-format srv3 http://youtube.com/xxxx<br />
+XML Usage(**Recommended**): youtube-dl --skip-download --write-auto-sub --sub-format srv3 http://youtube.com/xxxx<br />
 <br />
 Drag auto-sub file to main window. Once loaded, click any word, a verticle red line will appear, which indiates a new line.<br />
 <br />
 
 ## Auto line separation support Usage
-Download beatshow-player-setup-0.3.0-temp.exe at https://www.wenshushu.cn/box/46h1lj5pgjw
-Drag your mp4 video file to the exe, a json file will appear at the same path of your video.
-Drag the json file to the corresponding text field, click button on the right.
-Use the slider to adjuest effect.
-Thanks to [@wudicgi](https://github.com/wudicgi)
+Download beatshow-player-setup-0.3.0-temp.exe at https://www.wenshushu.cn/box/46h1lj5pgjw<br />
+Drag your mp4 video file to the exe, a json file will appear at the same path of your video.<br />
+Drag the json file to the corresponding text field, click button on the right.<br />
+Use the slider to adjuest effect.<br />
+Thanks to [@wudicgi](https://github.com/wudicgi)<br />
 
 ## Change log
 
 ### v.0.0.4.0
-Add auto line separation support
+Add auto line separation support<br />
 Fix xml support
 
 ### v.0.0.3.5
